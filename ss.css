@@ -1,0 +1,591 @@
+:root {
+    --primary-green: #006837;
+    --secondary-green: #5ac6af;
+    --light-green: #a7eede;
+    --white: #ffffff;
+    --black: #000000;
+    --dark-text: #03491b;
+    --medium-text: #006a4e;
+    --light-text: #caf4eb;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Kameron', sans-serif;
+    background-color: var(--white);
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== HEADER STYLES ===== */
+header {
+    background-color: var(--light-green);
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 90px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+.nav-links li {
+    margin: 0 5px;
+    position: relative;
+}
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    padding: 2.5px 2.5px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+.nav-links a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: white;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+.nav-links a:hover::before, .nav-links a:focus::before {
+    width: 100%;
+    left: 0;
+}
+.nav-links a:hover, .nav-links a:focus {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+.dropdown {
+    position: relative;
+}
+.hamburger-btn {
+    background: none;
+    border: none;
+    color: #006837;
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.hamburger-btn:hover {
+    transform: rotate(90deg);
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #a7eede;
+    list-style: none;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    min-width: 210px;
+}
+.dropdown-menu li {
+    padding: 8px 12px;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center; /* Align text and icon horizontally */
+    padding: 5px 10px;
+}
+
+.dropdown-menu a i {
+    margin-right: 10px; /* Adds space between the icon and the text */
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    padding: 1px 5px;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+.dropdown-menu a:hover, .dropdown-menu a:focus {                  
+    color: white;
+    transform: scale(1.05);
+}
+    .show {
+    display: block !important;
+}
+
+\end{code}  
+/* logo.img */
+.logo img {
+    max-height: 70px;
+    transition: all 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary-green);
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--medium-text);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--white);
+    color: var(--primary-green);
+    padding: 0.6rem 1.5rem;
+    border-radius: 45px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color:  #006a4e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--light-green);
+    padding: 2rem 0 1rem;
+    padding-left: 200px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    padding: 0 15px;
+}
+
+.footer-section h3 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-green);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: #006837;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-green);
+}
+
+.copyright {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 0rem;
+    border-top: 0px solid rgba(0,0,0,0.1);
+    font-size: 0.9rem;
+}
+
+
+
+buyticktes {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 160px 20px 40px;
+min-height: calc(100vh - 250px);
+width: 100%;
+}
+
+buyticktes .card {
+background-color: var(--light-green);
+border-radius: 20px;
+padding: 2rem;
+box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+width: 100%;
+max-width: 900px;
+}
+
+buyticktes h2 {
+color: var(--primary-green);
+text-align: center;
+margin-bottom: 2rem;
+font-size: 2rem;
+}
+
+
+buyticktes .form-label {
+display: block;
+margin-bottom: 0.5rem;
+font-weight: bold;
+color: var(--primary-green);
+font-size: 1.1rem;
+}
+
+buyticktes .form-control {
+width: 100%;
+padding: 0.8rem;
+border: 2px solid var(--secondary-green);
+border-radius: 8px;
+font-size: 1rem;
+margin-bottom: 1.5rem;
+transition: border-color 0.3s;
+}
+
+buyticktes .form-control:focus {
+outline: none;
+border-color: var(--primary-green);
+}
+
+/* payment method */
+
+
+/* Payment Options */
+.payment-options {
+    margin-top: 2rem;
+}
+
+.payment-options h2 {
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.payment-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    accent-color: var(--primary-green);
+}
+
+.payment-option label {
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* Payment Forms */
+.payment-form {
+    display: none;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.payment-form h3 {
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.payment-form .form-group {
+    grid-template-columns: 1fr;
+}
+
+.payment-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Card specific styles */
+.card-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.card-details input {
+    width: 100%;
+}
+
+/* Payment Actions */
+.payment-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.payment-actions .btn {
+    width: 48%;
+    margin: 0;
+}
+
+.btn-cancel {
+    background-color: var(--white);
+    color: var(--primary-green);
+    border: 2px solid var(--primary-green);
+}
+
+.btn-cancel:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-confirm {
+    background-color:#006a4e ;
+    color: var(--white);
+}
+
+        /* Mobile Banking Options */
+        .mobile-banking-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .bank-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .bank-option:hover {
+            background-color: rgba(0, 104, 55, 0.1);
+        }
+
+        .bank-option.selected {
+            border-color: var(--primary-green);
+            background-color: rgba(0, 104, 55, 0.05);
+        }
+
+        .bank-option img {
+            width: 150px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .bank-option span {
+            font-size: 0.8rem;
+            text-align: center;
+            color: var(--dark-text);
+        }
+
+        /* Banking Options */
+        .banking-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .bank-card-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .bank-card-option:hover {
+            background-color: rgba(0, 104, 55, 0.1);
+        }
+
+        .bank-card-option.selected {
+            border-color: var(--primary-green);
+            background-color: rgba(0, 104, 55, 0.05);
+        }
+
+        .bank-card-option img {
+            width: 100px;
+            height: 70px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .bank-card-option span {
+            font-size: 0.8rem;
+            text-align: center;
+            color: var(--dark-text);
+        }
+
+        /* Card Details Grid */
+        .card-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .card-details-grid .expiry-cvv {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        margin-bottom: 1.5rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropdown-menu {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+
+/* 
+my ticket css */
+.passenger-details {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 5px;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.detail-label {
+    font-weight: bold;
+    width: 120px;
+}
+
+.detail-value {
+    flex: 1;
+}
+
+.qr-container {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+}
+
+#qrcode {
+    display: inline-block;
+    margin: 15px 0;
+    padding: 10px;
+    background: white;
+    border: 1px solid #ddd;
+}
+
+.terms {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+
+
+
+
+
+
+
