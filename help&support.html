@@ -64,12 +64,30 @@
 
                     <div class="form-group">
                         <label for="lost-location">Location (Station/Train):</label>
-                        <input type="text" id="lost-location" name="location" required>
+                        <select id="lost-location" name="location" required>
+                            <option value="" disabled selected>Select Station</option>
+                            <option value="uttara-north">Uttara North</option>
+                            <option value="uttara-center">Uttara Center</option>
+                            <option value="uttara-south">Uttara South</option>
+                            <option value="pallabi">Pallabi</option>
+                            <option value="mirpur-11">Mirpur-11</option>
+                            <option value="mirpur-10">Mirpur-10</option>
+                            <option value="kazipara">Kazipara</option>
+                            <option value="shewrapara">Shewrapara</option>
+                            <option value="agargaon">Agargaon</option>
+                            <option value="bijoy-sarani">Bijoy Sarani</option>
+                            <option value="farmgate">Farmgate</option>
+                            <option value="karwan-bazar">Karwan Bazar</option>
+                            <option value="shahbagh">Shahbagh</option>
+                            <option value="dhaka-university">Dhaka University</option>
+                            <option value="bangladesh-secretariat">Bangladesh Secretariat</option>
+                            <option value="motijheel">Motijheel</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
                         <label for="lost-date">Date:</label>
-                        <input type="text" id="lost-date" name="date" required>
+                        <input type="date" id="lost-date" name="date" required>
                     </div>
 
                     <div class="form-group">
@@ -88,13 +106,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Upload Photo (if available):</label>
+                        <label for="file-upload">Upload Photo (if available):</label>
                         <div class="file-upload" onclick="document.getElementById('file-upload').click()">
                             <i class="fas fa-cloud-upload-alt"></i>
                             <span>Click to upload photo</span>
-                            <input type="file" id="file-upload" accept="image/*">
+                            <input type="file" id="file-upload" accept="image/*" style="display: none;">
                         </div>
-                        <div id="file-name" style="margin-top: 5px; font-size: 14px;"></div>
+                        <div id="file-name" class="file-name-display"></div>
                     </div>
 
                     <button type="submit" class="submit-btn">Submit Report</button>
@@ -113,7 +131,7 @@
                     <div class="form-group">
                         <label for="complaint-type">Type of Complaint:</label>
                         <select id="complaint-type" name="type" required>
-                            <option value="">Select complaint type</option>
+                            <option value="" disabled selected>Select complaint type</option>
                             <option value="service">Service Issue</option>
                             <option value="staff">Staff Behavior</option>
                             <option value="facility">Facility Problem</option>
@@ -129,12 +147,30 @@
 
                     <div class="form-group">
                         <label for="complaint-location">Location (Station/Train):</label>
-                        <input type="text" id="complaint-location" name="location" required>
+                        <select id="complaint-location" name="location" required>
+                            <option value="" disabled selected>Select Station</option>
+                            <option value="uttara-north">Uttara North</option>
+                            <option value="uttara-center">Uttara Center</option>
+                            <option value="uttara-south">Uttara South</option>
+                            <option value="pallabi">Pallabi</option>
+                            <option value="mirpur-11">Mirpur-11</option>
+                            <option value="mirpur-10">Mirpur-10</option>
+                            <option value="kazipara">Kazipara</option>
+                            <option value="shewrapara">Shewrapara</option>
+                            <option value="agargaon">Agargaon</option>
+                            <option value="bijoy-sarani">Bijoy Sarani</option>
+                            <option value="farmgate">Farmgate</option>
+                            <option value="karwan-bazar">Karwan Bazar</option>
+                            <option value="shahbagh">Shahbagh</option>
+                            <option value="dhaka-university">Dhaka University</option>
+                            <option value="bangladesh-secretariat">Bangladesh Secretariat</option>
+                            <option value="motijheel">Motijheel</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
                         <label for="complaint-date">Date of Incident:</label>
-                        <input type="text" id="complaint-date" name="date" required>
+                        <input type="date" id="complaint-date" name="date" required>
                     </div>
 
                     <div class="form-group">
@@ -204,12 +240,9 @@
                         <span>Uttara North Station</span>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
-
 
     <footer class="footer">
         <div class="footer-container">
@@ -220,21 +253,21 @@
                 <p>Email: info@dmtcl.gov.bd</p>
                 <p>☎ Helpline: +880 1234 567 890</p>
             </div>
-            <div style="margin-left: 50px;padding-left: 50px;" class="footer-section">
+            <div class="footer-section">
                 <h3>About</h3>
-                <p style="line-height: 3ch; text-align: justify;">Dhaka Metro Rail is a modern mass rapid transit system operated by Dhaka Mass Transit Company Limited (DMTCL). It aims to provide a fast, safe, and eco-friendly transportation solution for the people of Dhaka, reducing congestion and improving urban mobility.</p>
+                <p>Dhaka Metro Rail is a modern mass rapid transit system operated by Dhaka Mass Transit Company Limited (DMTCL). It aims to provide a fast, safe, and eco-friendly transportation solution for the people of Dhaka, reducing congestion and improving urban mobility.</p>
             </div>
-            <div style="margin-left: 120px;" class="footer-section">
+            <div class="footer-section">
                 <h3>Quick Links:</h3>
-                <p>Contact Us</a></p>
-                </p>FAQs</a></p>
-                <p>Terms & Conditions</a></p>
-                <p>Privacy Policy</a></p>
+                <p><a href="#" style="color: white; text-decoration: none;">Contact Us</a></p>
+                <p><a href="#" style="color: white; text-decoration: none;">FAQs</a></p>
+                <p><a href="#" style="color: white; text-decoration: none;">Terms & Conditions</a></p>
+                <p><a href="#" style="color: white; text-decoration: none;">Privacy Policy</a></p>
                 <h3>Follow Us:</h3>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com" target="_blank" class="text-dark me-3"><i class="fab fa-facebook fa-2x"></i></a>
-                    <a href="https://twitter.com" target="_blank" class="text-dark me-3"><i class="fab fa-twitter fa-2x"></i></a>
-                    <a href="https://www.instagram.com" target="_blank" class="text-dark me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -243,20 +276,27 @@
         <p><strong>Copyright & Disclaimer:</strong></p>
         <p>&copy; 2025 Dhaka Mass Transit Company Limited (DMTCL). All rights reserved.</p>
     </div>
+
     <script>
         // Toggle sections
         function toggleSection(sectionId) {
-            const btn = document.querySelector(`.toggle-btn[onclick="toggleSection('${sectionId}')"]`);
             const form = document.getElementById(`${sectionId}-form`);
+            const icon = document.querySelector(`.toggle-btn[onclick="toggleSection('${sectionId}')"] i`);
             
-            btn.classList.toggle('active');
             form.classList.toggle('active');
+            icon.classList.toggle('fa-chevron-up');
+            icon.classList.toggle('fa-chevron-down');
         }
 
         // Show selected file name
         document.getElementById('file-upload').addEventListener('change', function(e) {
-            const fileName = e.target.files[0] ? e.target.files[0].name : 'No file selected';
-            document.getElementById('file-name').textContent = fileName;
+            const fileNameDisplay = document.getElementById('file-name');
+            if (this.files.length > 0) {
+                fileNameDisplay.textContent = `Selected file: ${this.files[0].name}`;
+                fileNameDisplay.style.color = '#0056b3';
+            } else {
+                fileNameDisplay.textContent = '';
+            }
         });
 
         // Form submissions
@@ -271,6 +311,19 @@
             e.preventDefault();
             alert('Complaint submitted successfully!');
             this.reset();
+        });
+
+        // Toggle dropdown menu
+        function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Set default dates to today
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('lost-date').value = today;
+            document.getElementById('complaint-date').value = today;
         });
     </script>
 </body>
