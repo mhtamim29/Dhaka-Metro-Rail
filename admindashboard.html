@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhaka Metro Rail</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="picture/logo.png" alt="Dhaka Metro Rail" style="max-height: 80px;">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="admindashboard.html">DASHBOARD</a></li>
+                    <li><a href="updatenotice.html">UPDATE NOTICE</a></li>
+                    <li><a href="lost&found.html">LOST & FOUND</a></li>
+                    <li><a href="complain.html">COMPLAIN BOX</a></li>
+                    <li><a href="index.html" id="signout-link">SIGNOUT</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div  class="stats-card">
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-value" id="activeMetros">18</div>
+                <div class="stat-label">Active Metros</div>
+            </div>
+            
+            <div class="stat-box">
+                <div class="stat-value" id="totalUsers">298,000</div>
+                <div class="stat-label">Total Users</div>
+            </div>
+            
+            <div class="stat-box">
+                <div class="stat-value" id="passengersRatio">290</div>
+                <div class="stat-label">
+                    <span>Passengers Ratio</span>
+                    <button class="sort-btn" onclick="toggleDatePicker('passengers')">Sort by Date</button>
+                </div>
+                <div class="date-picker" id="passengersDatePicker">
+                    <input type="date" id="passengersDateInput">
+                    <button onclick="applyDateFilter('passengers')">Apply</button>
+                </div>
+            </div>
+            
+            <div class="stat-box">
+                <div class="stat-value" id="incomeRatio">296,000</div>
+                <div class="stat-label">
+                    <span>Income Ratio</span>
+                    <button class="sort-btn" onclick="toggleDatePicker('income')">Sort by Date</button>
+                </div>
+                <div class="date-picker" id="incomeDatePicker">
+                    <input type="date" id="incomeDateInput">
+                    <button onclick="applyDateFilter('income')">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <section>
+            <div style="padding-top: 50px;" class="content-row">
+                <div class="card schedule-card" style="margin-top: 0; padding-top: 0.1rem; text-align: center;background-color: #a7eede;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <select class="form-control" style="width: 120px; height: 40px; margin-top: 1rem;">
+                            <option value="">Select Time</option>
+                            <option value="08:00">08:00 AM</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">01:00 PM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="15:00">03:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                            <option value="17:00">05:00 PM</option>
+                            <option value="18:00">06:00 PM</option>
+                            <option value="19:00">07:00 PM</option>
+                            <option value="20:00">08:00 PM</option>
+                            <option value="21:00">09:00 PM</option>
+                            <option value="22:00">10:00 PM</option>
+                        </select>
+                        <h2 style="text-align:center;padding-top: 15px">Live Metro Schedule</h2>
+                        <select class="form-control" style="width: 200px; height: 40px; margin-top: 1rem;">
+                            <option value="" disabled selected>Select Your Station</option>
+                            <option value="uttara-north">Uttara North</option>
+                            <option value="uttara-center">Uttara Center</option>
+                            <option value="uttara-south">Uttara South</option>
+                            <option value="pallabi">Pallabi</option>
+                            <option value="mirpur-11">Mirpur-11</option>
+                            <option value="mirpur-10">Mirpur-10</option>
+                            <option value="kazipara">Kazipara</option>
+                            <option value="shewrapara">Shewrapara</option>
+                            <option value="agargaon">Agargaon</option>
+                            <option value="bijoy-sarani">Bijoy Sarani</option>
+                            <option value="farmgate">Farmgate</option>
+                            <option value="karwan-bazar">Karwan Bazar</option>
+                            <option value="shahbagh">Shahbagh</option>
+                            <option value="dhaka-university">Dhaka University</option>
+                            <option value="bangladesh-secretariat">Bangladesh Secretariat</option>
+                            <option value="motijheel">Motijheel</option>
+                        </select>
+                    </div>
+                    
+                    <table style="width: 100%; border-collapse: collapse; border-radius: 100px; border: #006a4e;">
+                        <thead style="width: 100%; background-color: #006a4e">
+                            <tr style="color: var(--white);">
+                                <th style="padding: 1rem;"> Serial No</th>
+                                <th style="padding: 1rem;">Arrival</th>
+                                <th style="padding: 1rem;">Departure</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scheduleTable">
+                            <tr style="background-color: var(--white);">
+                                <td style="padding: 1rem; text-align: center;">1</td>
+                                <td style="padding: 1rem; text-align: center;">
+                                    <span class="time-display">8:00 AM</span>
+                                    <input type="time" class="time-edit" value="08:00" style="display: none;">
+                                </td>
+                                <td style="padding: 1rem; text-align: center;">
+                                    <span class="time-display">8:01 AM</span>
+                                    <input type="time" class="time-edit" value="08:01" style="display: none;">
+                                </td>
+                            </tr>
+                            <tr style="background-color: #f2f2f2;">
+                                <td style="padding: 1rem; text-align: center;">2</td>
+                                <td style="padding: 1rem; text-align: center;">
+                                    <span class="time-display">8:20 AM</span>
+                                    <input type="time" class="time-edit" value="08:20" style="display: none;">
+                                </td>
+                                <td style="padding: 1rem; text-align: center;">
+                                    <span class="time-display">8:21 AM</span>
+                                    <input type="time" class="time-edit" value="08:21" style="display: none;">
+                                </td>
+                            </tr>
+                            <tr style="background-color: var(--white);">
+                                <td style="padding: 1rem; text-align: center;">3</td>
+                                <td style="padding: 1rem; text-align: center;">
+                                    <span class="time-display">8:40 AM</span>
+                                    <input type="time" class="time-edit" value="08:40" style="display: none;">
+                                </td>
+                                <td style="padding: 1rem; text-align: center;">
+                                    <span class="time-display">8:41 AM</span>
+                                    <input type="time" class="time-edit" value="08:41" style="display: none;">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="button-group" style="margin-top: 25px;">
+                        <button class="edit-btn" onclick="enableScheduleEdit()" style="background-color: #006a4e; color: white;">Edit Schedule</button>
+                        <button class="update-btn" onclick="updateSchedule()" style="background-color: #006a4e; color: white; display: none;">Update Schedule</button>
+                        <button class="cancel-btn" onclick="cancelScheduleEdit()" style="background-color: white; color: #006a4e; display: none;">Cancel</button>
+                    </div>
+                </div>
+                
+                <div class="card metro-times" style="margin-top: 0; padding-top: 0.1rem; text-align: center;background-color: #a7eede;border-radius: 20px;">
+                    <h2 style="padding-top: 15px">First/Last Metro Time</h2>
+                    
+                    <h3>Motijheel</h3>
+                    <div class="time-box" id="motijheel-first">
+                        First Metro at <span class="time-display">8:00 AM</span>
+                        <input type="time" class="time-input" value="08:00" style="display: none;">
+                    </div>
+                    <div class="time-box" id="motijheel-last">
+                        Last Metro at <span class="time-display">10:40 PM</span>
+                        <input type="time" class="time-input" value="22:40" style="display: none;">
+                    </div>
+                    
+                    <h3>Uttara-North</h3>
+                    <div class="time-box" id="uttara-first">
+                        First Metro at <span class="time-display">7:30 AM</span>
+                        <input type="time" class="time-input" value="07:30" style="display: none;">
+                    </div>
+                    <div class="time-box" id="uttara-last">
+                        Last Metro at <span class="time-display">10:10 PM</span>
+                        <input type="time" class="time-input" value="22:10" style="display: none;">
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="edit-btn" onclick="enableEditing()">Edit</button>
+                        <button class="update-btn" onclick="updateTimes()">Update</button>
+                        <button class="cancel-btn" onclick="cancelEditing()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-row">
+            <div class="card" style="flex: 2; margin-top: 0; padding-top: 0rem;background-color: #a7eede; height: 650px;">
+                <h2 style="padding-top: 15px; color: #03491b;" class="section-title">Notices & Alerts</h2>
+
+                <div class="notices">
+                    <div class="notice-item">
+                        <div class="notice-date">25/02/2025</div>
+                        <h3 class="notice-title">Threat to Suspend Services</h3>
+                        <p>Officials and employees of Dhaka Mass Transit Company Limited (DMTCL) have threatened to suspend metro rail services on February 21, 2025, due to unresolved issues.</p>
+                    </div>
+                    
+                    <div class="notice-item">
+                        <div class="notice-date">21/02/2025</div>
+                        <h3 class="notice-title">Revised Friday Schedule</h3>
+                        <p>As of January 16, 2025, the metro rail operates on Fridays from 3:00 PM to 9:00 PM, with departures from Uttara North to Motijheel starting at 3:00 PM and from Motijheel to Uttara North at 3:20 PM.</p>
+                    </div>
+                    
+                    <div class="notice-item">
+                        <div class="notice-date">27/02/2025</div>
+                        <h3 class="notice-title">Caution Against Flying Lanterns</h3>
+                        <p>In January 2025, DMTCL issued a notice advising the public to refrain from flying lanterns near metro rail areas to prevent potential hazards.</p>
+                    </div>
+                    
+
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 0; padding-top: 0.1rem; text-align: center;margin-bottom: o;background-color: #a7eede; height: 650px;">
+                <h2 style="padding-top: 15px; color: #03491b">Dhaka Metro station Route</h2>
+                <div style="background-color: var(--white); border-radius: 10px; margin-top: 1rem; display: flex; justify-content: center; align-items: center; width: 100%; height: 550px;">
+                    <!-- Map Image -->
+                    <img src="picture/station list.png" alt="Metro Map" style="width: 100%; height: 100%; object-fit: fill; object-fit: cover; border-radius: 10px;">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Company Information:</h3>
+                <p>Dhaka Mass Transit Company Limited (DMTCL)</p>
+                <p>Metro Rail Bhaban, Uttara, Dhaka-1230, Bangladesh</p>
+                <p>Email: info@dmtcl.gov.bd</p>
+                <p>☎ Helpline: +880 1234 567 890</p>
+            </div>
+            <div style="margin-left: 50px;padding-left: 50px;" class="footer-section">
+                <h3>About</h3>
+                <p style="line-height: 3ch; text-align: justify;">Dhaka Metro Rail is a modern mass rapid transit system operated by Dhaka Mass Transit Company Limited (DMTCL). It aims to provide a fast, safe, and eco-friendly transportation solution for the people of Dhaka, reducing congestion and improving urban mobility.</p>
+            </div>
+            <div style="margin-left: 120px;" class="footer-section">
+                <h3>Quick Links:</h3>
+                <p>Contact Us</a></p>
+                </p>FAQs</a></p>
+                <p>Terms & Conditions</a></p>
+                <p>Privacy Policy</a></p>
+                <h3>Follow Us:</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" class="text-dark me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="text-dark me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="text-dark me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        <p><strong>Copyright & Disclaimer:</strong></p>
+        <p>&copy; 2025 Dhaka Mass Transit Company Limited (DMTCL). All rights reserved.</p>
+    </div>
+    </body>
+    </html>
