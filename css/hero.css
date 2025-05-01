@@ -1,0 +1,199 @@
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    color: var(--white);
+    text-align: center;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.hero .container {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+}
+
+.journey-planner {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(206, 239, 232, 0.7);
+    padding: 1.5rem;
+    border-radius: 30px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    color: #03491B;
+    width: 60%;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 14px;
+    border: none;
+}
+
+.btn-large {
+    padding: 0.75rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Fallback if video doesn't load */
+.no-video .hero-video {
+    display: none;
+}
+
+.no-video .hero {
+    background: url('picture/hero-section.png') center/cover no-repeat;
+}
+
+/* Fare Calculator Styles */
+.fare-result {
+margin-top: 1.5rem;
+padding: 1.5rem;
+background: white;
+border-radius: 25px;
+box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+text-align: center;
+}
+
+.fare-route {
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 1rem;
+font-size: 1.1rem;
+}
+
+.station {
+padding: 0.5rem 1rem;
+background: #f5f5f5;
+border-radius: 4px;
+}
+
+.station.from {
+color: #006a4e;
+font-weight: bold;
+}
+
+.station.to {
+color: #e81a1a;
+font-weight: bold;
+}
+
+.arrow {
+margin: 0 0.5rem;
+color: #666;
+}
+
+.fare-amount {
+font-size: 2rem;
+font-weight: bold;
+color: #006a4e;
+margin: 0.5rem 0;
+}
+
+.fare-note {
+color: #666;
+font-size: 0.9rem;
+}
+
+.fare-error {
+margin-top: 1.5rem;
+padding: 1rem;
+background: #ffebee;
+color: #c62828;
+border-radius: 4px;
+text-align: center;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        min-height: 700px;
+    }
+    
+    .journey-planner {
+        width: 70%;
+    }
+    
+    .form-group {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .btn-large {
+        font-size: 1.1rem;
+        padding: 0.85rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .journey-planner {
+        width: 60%;
+        padding: 2.5rem;
+    }
+    
+    .form-control {
+        padding: 0.85rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .journey-planner {
+        width: 50%;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 2rem;
+    }
+    
+    .journey-planner {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+}

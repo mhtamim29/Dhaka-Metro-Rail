@@ -1,0 +1,204 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.card {
+    background-color: #a7eede;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    width: 95%;
+}
+
+.card h2 {
+    text-align: center;
+    color: #006a4e;
+    margin: 0;
+    padding: 30px 0;
+}
+
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -10px;
+    padding: 0 10px;
+}
+
+.complaint-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    min-width: 600px;
+}
+
+.complaint-table th, 
+.complaint-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.complaint-table th {
+    background-color: #006a4e;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+.complaint-table tr:hover {
+    background-color: rgba(255,255,255,0.7);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    border: 1px solid;
+    white-space: nowrap;
+}
+
+.btn-noted {
+    background-color: #006a4e;
+    color: white;
+    border-color: #006a4e;
+}
+
+.btn-noted.noted {
+    background-color: white;
+    color: #006a4e;
+}
+
+.btn-solve {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+
+.btn-solve:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+}
+
+/* Stacked mobile view for very small screens */
+@media (max-width: 640px) {
+    .complaint-table {
+        min-width: 0;
+        display: block;
+    }
+    
+    .complaint-table thead {
+        display: none;
+    }
+    
+    .complaint-table tr {
+        display: block;
+        margin-bottom: 15px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    
+    .complaint-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        border-bottom: none;
+        text-align: right;
+    }
+    
+    .complaint-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        margin-right: auto;
+        padding-right: 10px;
+        text-align: left;
+        color: #006a4e;
+    }
+    
+    .action-buttons {
+        justify-content: flex-end;
+    }
+}
+
+/* Responsive adjustments for medium screens */
+@media (max-width: 768px) {
+    .card {
+        padding: 15px;
+    }
+    
+    .card h2 {
+        padding: 20px 0;
+        font-size: 1.5rem;
+    }
+    
+    .complaint-table th, 
+    .complaint-table td {
+        padding: 10px 8px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small screen optimizations */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .card {
+        margin: 10px auto;
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .card h2 {
+        font-size: 1.3rem;
+        padding: 15px 0;
+    }
+    
+    .complaint-table td {
+        padding: 8px 6px;
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        padding: 6px 8px;
+        font-size: 0.85rem;
+    }
+
+    .action-buttons {
+        flex-direction: row;
+        gap: 5px;
+        justify-content: flex-end;
+    }
+}
+
+/* Very small screen button adjustments */
+@media (max-width: 360px) {
+    .btn {
+        padding: 5px 6px;
+        font-size: 0.8rem;
+    }
+    
+    .action-buttons {
+        gap: 4px;
+    }
+}

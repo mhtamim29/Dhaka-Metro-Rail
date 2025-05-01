@@ -1,0 +1,224 @@
+login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 130px 20px 30px; */
+    min-height: calc(100vh - 250px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+login .card {
+    background-color: var(--light-green);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+}
+
+login h2 {
+    color: var(--primary-green);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: clamp(1.8rem, 4vw, 2rem);
+}
+
+login .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--primary-green);
+    font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+login .form-control {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--secondary-green);
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+login .form-control:focus {
+    outline: none;
+    border-color: var(--primary-green);
+}
+
+login .btn {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+login .btn:hover {
+    background-color: var(--medium-text);
+    transform: translateY(-2px);
+}
+
+login .text-center {
+    text-align: center;
+}
+
+login .mt-3 {
+    margin-top: 1rem;
+}
+
+login a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+login a:hover {
+    text-decoration: underline;
+}
+
+/* Password Input Container */
+.password-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+/* Show Password Checkbox */
+.show-password {
+    position: absolute;
+    right: 10px;
+    top: 55%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.show-password input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: var(--white);
+    border: 2px solid #006a4e;
+    border-radius: 3px;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.show-password input[type="checkbox"]:checked {
+    background-color: #006a4e;
+}
+
+.show-password input[type="checkbox"]:checked::after {
+    content: "✓";
+    color: var(--white);
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.show-password input[type="checkbox"]:hover {
+    border-color: var(--medium-text);
+}
+
+.show-password input[type="checkbox"]:focus {
+    outline: 2px solid var(--secondary-green);
+    outline-offset: 2px;
+}
+
+.show-password label {
+    color: var(--medium-text);
+    font-size: 0.9rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    login {
+        padding: 130px 15px 30px;
+    }
+    
+    login .card {
+        padding: 1.5rem;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .footer-section {
+        margin-left: 0;
+        padding-left: 0;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    login {
+        padding: 100px 10px 20px;
+    }
+    
+    login .card {
+        padding: 1.2rem;
+        border-radius: 15px;
+    }
+    
+    login h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    login .form-label {
+        font-size: 1rem;
+    }
+    
+    login .btn {
+        padding: 0.7rem;
+    }
+    
+    .footer-section {
+        margin-left: 0;
+    }
+    
+    .social-icons a i {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    login {
+        padding: 90px 8px 15px;
+    }
+    
+    login .card {
+        padding: 1rem;
+    }
+    
+    login h2 {
+        font-size: 1.4rem;
+    }
+}

@@ -1,0 +1,262 @@
+.travel-card {
+    background-color: #a7eede;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #006a4e;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.date-picker,
+.sort-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.date-picker label,
+.sort-options label {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+#dateInput,
+#sortSelect {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.clear-btn {
+    padding: 10px;
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+    width: 100%;
+}
+
+.clear-btn:hover {
+    background-color: #7f8c8d;
+}
+
+.table-container {
+    overflow-x: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 0 -10px;
+    width: calc(100% + 20px);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 600px;
+}
+
+th, td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #006a4e;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+td {
+    color: #006a4e;
+    font-weight: 500;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.ticket-btn,
+.delete-btn {
+    padding: 8px 12px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 13px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.ticket-btn {
+    background-color: #3498db;
+}
+
+.ticket-btn:hover {
+    background-color: #2980b9;
+}
+
+.delete-btn {
+    background-color: #ff0000;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px 20px;
+    display: none;
+}
+
+.no-results i {
+    font-size: 2.5rem;
+    color: #bdc3c7;
+    margin-bottom: 15px;
+}
+
+.no-results p {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+/* Responsive adjustments */
+@media (min-width: 576px) {
+    .controls {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .date-picker,
+    .sort-options {
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+    }
+    
+    .date-picker label,
+    .sort-options label {
+        margin-right: 10px;
+        font-size: 14px;
+    }
+    
+    #dateInput,
+    #sortSelect {
+        width: auto;
+    }
+    
+    .clear-btn {
+        width: auto;
+    }
+    
+    .table-container {
+        margin: 0;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .travel-card {
+        padding: 30px;
+    }
+    
+    .page-title {
+        font-size: 28px;
+    }
+    
+    .controls {
+        justify-content: space-between;
+    }
+    
+    .date-picker,
+    .sort-options {
+        flex: 1;
+        max-width: 48%;
+    }
+    
+    table {
+        font-size: 15px;
+    }
+    
+    th, td {
+        padding: 15px;
+    }
+    
+    .ticket-btn,
+    .delete-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+        display: inline-block;
+        width: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .page-title {
+        font-size: 30px;
+    }
+    
+    .date-picker,
+    .sort-options {
+        flex: none;
+        max-width: none;
+    }
+    
+    .controls {
+        flex-wrap: nowrap;
+    }
+    
+    table {
+        font-size: 16px;
+    }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #006a4e;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.notification.fade-out {
+    opacity: 0;
+}

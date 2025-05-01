@@ -1,0 +1,37 @@
+:root {
+    --primary-green: #006837;
+    --secondary-green: #5ac6af;
+    --light-green: #a7eede;
+    --white: #ffffff;
+    --black: #000000;
+    --dark-text: #03491b;
+    --medium-text: #006a4e;
+    --light-text: #caf4eb;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Kameron', sans-serif;
+    background-color: var(--white);
+    color: var(--dark-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+}

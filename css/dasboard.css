@@ -1,0 +1,218 @@
+.stats-card {
+    background-color: #a7eede;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 1164px;
+    margin: 20px auto 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    margin-top: 130px;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.stat-box {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.stat-value {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: bold;
+    color: #006a4e;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: clamp(14px, 2vw, 16px);
+    color: #006a4e;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sort-btn {
+    background-color: #006a4e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.sort-btn:hover {
+    background-color: #03491b;
+}
+
+.date-picker {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: none;
+    width: max-content;
+    max-width: 100%;
+}
+
+.date-picker input[type="date"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.date-picker button {
+    background-color: #006a4e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 5px;
+    width: 100%;
+}
+
+/* Time edit styles */
+.time-box {
+    position: relative;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.edit-time-btn {
+    background-color: #006a4e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.edit-time-btn:hover {
+    background-color: #03491b;
+}
+
+.time-edit {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    width: max-content;
+    max-width: 100%;
+}
+
+.time-edit input[type="time"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.time-edit-buttons {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.time-edit button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 1;
+    min-width: 60px;
+}
+
+.time-edit button:first-of-type {
+    background-color: #006a4e;
+    color: white;
+}
+
+.time-edit button:last-of-type {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .stat-box {
+        padding: 10px;
+    }
+    
+    .stat-label {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .sort-btn {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-card {
+        padding: 15px;
+        margin: 15px auto;
+    }
+    
+    .date-picker {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 50%;
+    }
+    
+    .time-edit {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 50%;
+    }
+}

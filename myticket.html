@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhaka Metro Rail</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Include QR code library -->
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/myticket.css">
+    <link rel="stylesheet" href="css/Footer.css">
+    <script src="Js/buyticket.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+          <div class="logo">
+            <img src="picture/logo.png" alt="Dhaka Metro Rail" />
+          </div>
+          <button class="hamburger-btn" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+          </button>
+          <nav>
+            <ul class="nav-links" id="nav-links">
+              <li><a href="home.html">HOME</a></li>
+              <li><a href="buyticket.html">BUY TICKET</a></li>
+              <li><a href="help&support.html">HELP & SUPPORT</a></li>
+              <li><a href="myticket.html">MY TICKETS</a></li>
+              <li><a href="travelhistory.html">TRAVEL HISTORY</a></li>
+              <li><a href="profile.html">PROFILE</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div class="container" style="padding-top: 130px; padding-bottom: 30px;">
+        <div class="card">
+            <h2>Your Metro Rail Ticket</h2>
+            <div id="ticket-content" style="padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #fff;">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <img src="picture/logo.png" alt="Dhaka Metro Rail" style="max-height: 60px;">
+                    <h3 style="margin-top: 10px;">DHAKA MASS TRANSIT COMPANY LIMITED (DMTCL)</h3>
+                    <h4>Congratulation, You Have Successfully Booked a Ticket</h4>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                    <div style="padding-left: 5px;">
+                        <p style="font-weight: bold; margin-bottom: 5px;">Ticket No:</p>
+                        <p id="ticket-number"></p>
+                    </div>
+                    <div>
+                        <p style="font-weight: bold; margin-bottom: 5px;">Date:</p>
+                        <p id="ticket-date"></p>
+                    </div>
+                    <div style="padding-right: 5px;">
+                        <p style="font-weight: bold; margin-bottom: 5px;">Time:</p>
+                        <p id="ticket-time"></p>
+                    </div>
+                </div>
+
+                <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <p style="font-weight: bold; margin-bottom: 5px;">From:</p>
+                            <p id="ticket-from"></p>
+                        </div>
+                        <div style="text-align: center;">
+                            <i class="fas fa-arrow-right" style="font-size: 24px; margin-top: 15px;"></i>
+                        </div>
+                        <div>
+                            <p style="font-weight: bold; margin-bottom: 5px;">To:</p>
+                            <p id="ticket-to"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <p style="font-weight: bold; margin-bottom: 5px;">Fare:</p>
+                    <p id="ticket-fare" style="font-size: 24px; font-weight: bold; color: #006837;"></p>
+                </div>
+                
+                <div class="passenger-details">
+                    <h3 style="margin-bottom: 15px;">Passenger Information</h3>
+                    <div class="detail-row">
+                        <div class="detail-label">Full Name:</div>
+                        <div class="detail-value" id="passenger-name"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">NID Number:</div>
+                        <div class="detail-value" id="passenger-nid"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Email:</div>
+                        <div class="detail-value" id="passenger-email"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Phone:</div>
+                        <div class="detail-value" id="passenger-phone"></div>
+                    </div>
+                </div>
+                
+                <div style="border-top: 1px dashed #ccc; padding-top: 15px; margin-bottom: 20px;">
+                    <h3 style="font-weight: bold; margin-bottom: 5px;">Payment Method:</h3>
+                    <p id="ticket-payment-method"></p>
+                    <p id="ticket-payment-details" style="font-size: 14px; color: #666;"></p>
+                </div>
+                
+                <div class="qr-container">
+                    <p style="font-weight: bold;">Scan this QR code at station gates</p>
+                    <div id="qrcode"></div>
+                </div>
+                
+                <div style="color: red;" class="terms">
+                    <p>This ticket is valid for a single journey only. It is non-transferable and non-refundable.</p>
+                    <p>Please ensure you scan the QR code at the entry and exit gates.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; text-align: center;">
+                <button id="download-pdf" class="btn" style="background-color: #006a4e; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+                    <i class="fas fa-download"></i> Download PDF Ticket
+                </button>
+                <button id="back-to-home" class="btn" style="background-color: #ddd; color: #006a4e; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px; max-width: 300px; text-decoration: none;">
+                    <a href="home.html" style="text-decoration: none; color: #006a4e;">HOME</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get ticket data from sessionStorage
+            const ticketData = JSON.parse(sessionStorage.getItem('ticketData'));
+            
+            if (!ticketData) {
+                alert('No ticket data found. Please purchase a ticket first.');
+                window.location.href = 'buyticket.html';
+                return;
+            }
+            
+            // Display ticket data
+            document.getElementById('ticket-number').textContent = ticketData.ticketNumber;
+            document.getElementById('ticket-date').textContent = ticketData.date;
+            document.getElementById('ticket-time').textContent = ticketData.time;
+            document.getElementById('ticket-from').textContent = ticketData.from;
+            document.getElementById('ticket-to').textContent = ticketData.to;
+            document.getElementById('ticket-fare').textContent = ticketData.fare + ' Taka';
+            document.getElementById('ticket-payment-method').textContent = ticketData.payment.method;
+            
+            // Display passenger details
+            document.getElementById('passenger-name').textContent = ticketData.passenger?.name || 'Not provided';
+            document.getElementById('passenger-nid').textContent = ticketData.passenger?.nid || 'Not provided';
+            document.getElementById('passenger-email').textContent = ticketData.passenger?.email || 'Not provided';
+            document.getElementById('passenger-phone').textContent = ticketData.passenger?.phone || 'Not provided';
+            
+            // Set payment details based on method
+            if (ticketData.payment.method === 'Mobile Banking') {
+                document.getElementById('ticket-payment-details').textContent = 
+                    `${ticketData.payment.provider} - ${ticketData.payment.account}`;
+            } else {
+                document.getElementById('ticket-payment-details').textContent = 
+                    `${ticketData.payment.cardType} - **** **** **** ${ticketData.payment.cardNumber.slice(-4)}`;
+            }
+            
+            // Generate QR code
+            const qrData = JSON.stringify({
+                ticketNumber: ticketData.ticketNumber,
+                from: ticketData.from,
+                to: ticketData.to,
+                fare: ticketData.fare,
+                date: ticketData.date,
+                time: ticketData.time,
+                passenger: ticketData.passenger?.name || 'Guest'
+            });
+            
+            new QRCode(document.getElementById("qrcode"), {
+                text: qrData,
+                width: 150,
+                height: 150,
+                colorDark : "#006837",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+            
+            // Download PDF button
+            document.getElementById('download-pdf').addEventListener('click', function() {
+                const ticketContent = document.getElementById('ticket-content');
+                
+                html2canvas(ticketContent).then(canvas => {
+                    const imgData = canvas.toDataURL('image/png');
+                    const pdf = new jspdf.jsPDF();
+                    const imgProps = pdf.getImageProperties(imgData);
+                    const pdfWidth = pdf.internal.pageSize.getWidth();
+                    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                    
+                    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                    pdf.save(`DhakaMetroTicket_${ticketData.ticketNumber}.pdf`);
+                });
+            });
+            
+            // Back to home button
+            document.getElementById('back-to-home').addEventListener('click', function() {
+                window.location.href = 'home.html';
+            });
+            
+            // Your existing toggleMenu function
+            function toggleMenu() {
+                var menu = document.getElementById("dropdownMenu");
+                menu.classList.toggle("show");
+            }
+            
+            window.onclick = function(event) {
+                if (!event.target.closest('.dropdown')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-menu");
+                    for (var i = 0; i < dropdowns.length; i++) {
+                        dropdowns[i].classList.remove('show');
+                    }
+                }
+            }
+        });
+    </script>
+
+      <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Company Information:</h3>
+                <p>Dhaka Mass Transit Company Limited (DMTCL)</p>
+                <p>Metro Rail Bhaban, Uttara, Dhaka-1230, Bangladesh</p>
+                <p>Email: info@dmtcl.gov.bd</p>
+                <p>☎ Helpline: +880 1234 567 890</p>
+            </div>
+            <div style="margin-left: 50px;padding-left: 50px;" class="footer-section">
+                <h3>About</h3>
+                <p style="line-height: 3ch;text-align: justify;">Dhaka Metro Rail is a modern mass rapid transit system operated by Dhaka Mass Transit Company Limited (DMTCL). It aims to provide a fast, safe, and eco-friendly transportation solution for the people of Dhaka, reducing congestion and improving urban mobility.</p>
+            </div>
+            <div style="margin-left: 120px;" class="footer-section">
+                <h3>Quick Links:</h3>
+                <p>Contact Us</a></p>
+                </p>FAQs</a></p>
+                <p>Terms & Conditions</a></p>
+                <p>Privacy Policy</a></p>
+                <h3>Follow Us:</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" class="text-dark me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="text-dark me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="text-dark me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        <p><strong>Copyright & Disclaimer:</strong></p>
+        <p>&copy; 2025 Dhaka Mass Transit Company Limited (DMTCL). All rights reserved.</p>
+    </div>
+</body>
+</html>

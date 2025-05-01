@@ -1,0 +1,227 @@
+profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 130px 20px 20px;
+    min-height: calc(100vh - 250px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+profile .card {
+    background-color: var(--light-green);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+profile h2 {
+    color: var(--primary-green);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive font size */
+}
+
+/* Profile Picture Section */
+.profile-picture-container {
+    position: relative;
+    width: clamp(100px, 25vw, 150px); /* Responsive width */
+    height: clamp(100px, 25vw, 150px); /* Responsive height */
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-green);
+}
+
+#profilePic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 104, 55, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    opacity: 0;
+    font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive icon size */
+}
+
+.profile-picture-container:hover .upload-icon {
+    opacity: 1;
+}
+
+.upload-icon:hover {
+    background-color: rgba(0, 104, 55, 0.7);
+}
+
+/* Form Input Groups */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark-gray);
+    font-size: clamp(0.9rem, 2vw, 1rem); /* Responsive font size */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px 12px 15px; /* Extra padding for edit icon */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: clamp(0.9rem, 2vw, 1rem); /* Responsive font size */
+    transition: border-color 0.3s;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+}
+
+.input-group input:disabled {
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+/* Edit Icons */
+.edit-icon {
+    position: absolute;
+    right: 15px;
+    top: 38px;
+    color: var(--primary-green);
+    cursor: pointer;
+    transition: color 0.3s;
+    font-size: clamp(1rem, 2vw, 1.2rem); /* Responsive icon size */
+}
+
+.edit-icon:hover {
+    color: var(--secondary-color);
+}
+
+/* Save Button */
+profile .btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background-color: #006a4e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: clamp(1rem, 2.5vw, 1.125rem); /* Responsive font size */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+profile .btn:hover {
+    background-color: #005a40;
+    transform: translateY(-2px);
+}
+
+/* Sign Out Button Container */
+.sign-out-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.btn-sign-out {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background-color: #006a4e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: clamp(1rem, 2.5vw, 1.125rem); /* Responsive font size */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.btn-sign-out:hover {
+    background-color: #005a40;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    profile {
+        padding: 110px 15px 20px;
+        min-height: calc(100vh - 200px);
+    }
+    
+    profile .card {
+        padding: 1.5rem;
+    }
+    
+    .edit-icon {
+        top: 35px;
+    }
+}
+
+@media (max-width: 576px) {
+    profile {
+        padding: 100px 10px 15px;
+    }
+    
+    .profile-picture-container {
+        margin-bottom: 20px;
+    }
+    
+    .input-group {
+        margin-bottom: 15px;
+    }
+    
+    .input-group input {
+        padding: 10px 35px 10px 12px;
+    }
+    
+    .edit-icon {
+        right: 10px;
+        top: 32px;
+    }
+    
+    profile .btn, .btn-sign-out {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    profile {
+        padding: 90px 8px 12px;
+    }
+    
+    .input-group label {
+        margin-bottom: 6px;
+    }
+    
+    .edit-icon {
+        top: 30px;
+    }
+}

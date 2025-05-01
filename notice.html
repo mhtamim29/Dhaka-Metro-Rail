@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhaka Metro Rail</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/notice.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/Footer.css">
+    <script src="Js/index.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="picture/logo.png" alt="Dhaka Metro Rail" />
+            </div>
+            <button class="hamburger-btn" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="buyticket.html">BUY TICKET</a></li>
+                    <li><a href="help&support.html">HELP & SUPPORT</a></li>
+                    <li><a href="myticket.html">MY TICKETS</a></li>
+                    <li><a href="travelhistory.html">TRAVEL HISTORY</a></li>
+                    <li><a href="profile.html">PROFILE</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main style="padding-top: 130px;padding-bottom: 30px;"class="container">
+        <section class="content-row">
+            <div class="notice-container">
+                <div class="notice-header">
+                    <div class="filter-tabs">
+                        <button class="tab-btn active" onclick="filterNotices('all')">All</button>
+                        <button class="tab-btn" onclick="filterNotices('general')">General</button>
+                        <button class="tab-btn" onclick="filterNotices('lost')">Lost & Found</button>
+                    </div>
+                    
+                    <div class="center-title">
+                        <h2 class="section-title">Notices & Alerts</h2>
+                    </div>
+                    
+                    <div class="sort-options">
+                        <span class="sort-label">Sort by:</span>
+                        <select class="sort-select" onchange="sortNotices(this.value)">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                    </div>
+                </div>
+               
+
+                <div class="notices-list" id="noticesList">
+                    <!-- Initial Notices (visible by default) -->
+                    <div class="notice-item general">
+                        <div class="notice-date">25/02/2025</div>
+                        <h3 class="notice-title">Threat to Suspend Services</h3>
+                        <p class="notice-content">Officials and employees of Dhaka Mass Transit Company Limited (DMTCL) have threatened to suspend metro rail services on February 21, 2025, due to unresolved issues regarding their demands.</p>
+                        <span class="notice-tag general-tag">General Notice</span>
+                    </div>
+                    
+                    <div class="notice-item general">
+                        <div class="notice-date">21/02/2025</div>
+                        <h3 class="notice-title">Revised Friday Schedule</h3>
+                        <p class="notice-content">As of January 16, 2025, the metro rail operates on Fridays from 3:00 PM to 9:00 PM, with departures from Uttara North to Motijheel starting at 3:00 PM and from Motijheel to Uttara North at 3:20 PM.</p>
+                        <span class="notice-tag general-tag">General Notice</span>
+                    </div>
+                    
+                    <div class="notice-item lost">
+                        <div class="notice-date">20/02/2025</div>
+                        <h3 class="notice-title">Found: Wallet at Agargaon Station</h3>
+                        <p class="notice-content">A black leather wallet was found at Agargaon Station ticket counter. Contains ID cards and credit cards. Owner can claim at station manager's office by providing proper identification.</p>
+                        <span class="notice-tag lost-tag">Lost & Found</span>
+                    </div>
+                    
+                    <div class="notice-item lost">
+                        <div class="notice-date">18/02/2025</div>
+                        <h3 class="notice-title">Lost: School Bag on Metro</h3>
+                        <p class="notice-content">A blue school bag with textbooks was left on metro train (Route: Motijheel to Uttara) at approximately 4:30 PM. Contains notebooks with name "Rahim Ahmed". Please contact lost property office at Uttara North station.</p>
+                        <span class="notice-tag lost-tag">Lost & Found</span>
+                    </div>
+                    
+                    <div class="notice-item general">
+                        <div class="notice-date">15/02/2025</div>
+                        <h3 class="notice-title">Caution Against Flying Lanterns</h3>
+                        <p class="notice-content">In January 2025, DMTCL issued a notice advising the public to refrain from flying lanterns near metro rail areas to prevent potential hazards to the overhead power lines and train operations.</p>
+                        <span class="notice-tag general-tag">General Notice</span>
+                    </div>
+                    
+                    <div class="notice-item lost">
+                        <div class="notice-date">12/02/2025</div>
+                        <h3 class="notice-title">Found: Mobile Phone at Shahbagh</h3>
+                        <p class="notice-content">Samsung Galaxy phone found on platform bench at Shahbagh Station. Device is locked but has emergency contact information visible. Currently kept at station security office.</p>
+                        <span class="notice-tag lost-tag">Lost & Found</span>
+                    </div>
+
+                    <!-- Additional Notices (hidden by default) -->
+                    <div class="notice-item general hidden">
+                        <div class="notice-date">10/02/2025</div>
+                        <h3 class="notice-title">Maintenance Work at Pallabi Station</h3>
+                        <p class="notice-content">Essential maintenance work will be carried out at Pallabi Station from February 12-14, 2025. During this period, the north entrance will be temporarily closed. Please use the south entrance.</p>
+                        <span class="notice-tag general-tag">General Notice</span>
+                    </div>
+                    
+                    <div class="notice-item lost hidden">
+                        <div class="notice-date">08/02/2025</div>
+                        <h3 class="notice-title">Found: Umbrella at Farmgate</h3>
+                        <p class="notice-content">Large blue umbrella with wooden handle found near exit gate at Farmgate Station during afternoon rain. Available for collection at station manager's office.</p>
+                        <span class="notice-tag lost-tag">Lost & Found</span>
+                    </div>
+                    
+                    <div class="notice-item general hidden">
+                        <div class="notice-date">05/02/2025</div>
+                        <h3 class="notice-title">New Ticketing System Launch</h3>
+                        <p class="notice-content">DMTCL will launch a new digital ticketing system on February 25, 2025. The system will include mobile app payments and contactless smart cards. Training sessions for staff will cause minor delays.</p>
+                        <span class="notice-tag general-tag">General Notice</span>
+                    </div>
+                    
+                    <div class="notice-item lost hidden">
+                        <div class="notice-date">03/02/2025</div>
+                        <h3 class="notice-title">Lost: Spectacles on Train</h3>
+                        <p class="notice-content">Black framed spectacles with progressive lenses left on seat of train traveling from Mirpur-11 to Karwan Bazar around 9:15 AM. Case has initials "M.S." engraved.</p>
+                        <span class="notice-tag lost-tag">Lost & Found</span>
+                    </div>
+                    
+                    <div class="notice-item general hidden">
+                        <div class="notice-date">01/02/2025</div>
+                        <h3 class="notice-title">Increased Security Measures</h3>
+                        <p class="notice-content">Due to recent events, security measures at all metro stations have been enhanced. Passengers are advised to arrive at least 15 minutes earlier than usual to allow for additional security checks.</p>
+                        <span class="notice-tag general-tag">General Notice</span>
+                    </div>
+                </div>
+
+                <!-- Replace the existing view-more-btn with this button container -->
+                <div class="button-container">
+                    <button class="back-btn" onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button class="view-more-btn" onclick="showMoreNotices()">View More Notices</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Company Information:</h3>
+                <p>Dhaka Mass Transit Company Limited (DMTCL)</p>
+                <p>Metro Rail Bhaban, Uttara, Dhaka-1230, Bangladesh</p>
+                <p>Email: info@dmtcl.gov.bd</p>
+                <p>☎ Helpline: +880 1234 567 890</p>
+            </div>
+            <div style="margin-left: 50px;padding-left: 50px;" class="footer-section">
+                <h3>About</h3>
+                <p style="line-height: 3ch;text-align: justify;">Dhaka Metro Rail is a modern mass rapid transit system operated by Dhaka Mass Transit Company Limited (DMTCL). It aims to provide a fast, safe, and eco-friendly transportation solution for the people of Dhaka, reducing congestion and improving urban mobility.</p>
+            </div>
+            <div style="margin-left: 120px;" class="footer-section">
+                <h3>Quick Links:</h3>
+                <p>Contact Us</a></p>
+                </p>FAQs</a></p>
+                <p>Terms & Conditions</a></p>
+                <p>Privacy Policy</a></p>
+                <h3>Follow Us:</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" class="text-dark me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="text-dark me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="text-dark me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        <p><strong>Copyright & Disclaimer:</strong></p>
+        <p>&copy; 2025 Dhaka Mass Transit Company Limited (DMTCL). All rights reserved.</p>
+    </div>
+    <script>
+        // Add this script to your index.js file or within <script> tags in your HTML
+
+// Function to filter notices based on category
+function filterNotices(category) {
+    const noticeItems = document.querySelectorAll('.notice-item');
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    
+    // Update active tab
+    tabButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase().includes(category)) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Show/hide notices based on category
+    noticeItems.forEach(item => {
+        if (category === 'all') {
+            item.classList.remove('hidden');
+        } else {
+            if (item.classList.contains(category)) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        }
+    });
+    
+    // Reset view more button
+    resetViewMoreButton();
+}
+
+// Function to sort notices
+function sortNotices(sortBy) {
+    const noticesList = document.getElementById('noticesList');
+    const noticeItems = Array.from(document.querySelectorAll('.notice-item:not(.hidden)'));
+    
+    noticeItems.sort((a, b) => {
+        const dateA = new Date(a.querySelector('.notice-date').textContent.split('/').reverse().join('/'));
+        const dateB = new Date(b.querySelector('.notice-date').textContent.split('/').reverse().join('/'));
+        
+        return sortBy === 'newest' ? dateB - dateA : dateA - dateB;
+    });
+    
+    // Reappend sorted items
+    noticesList.innerHTML = '';
+    noticeItems.forEach(item => {
+        noticesList.appendChild(item);
+    });
+}
+
+// Function to show more notices
+function showMoreNotices() {
+    const hiddenNotices = document.querySelectorAll('.notice-item.hidden');
+    const noticesToShow = Math.min(5, hiddenNotices.length);
+    
+    for (let i = 0; i < noticesToShow; i++) {
+        hiddenNotices[i].classList.remove('hidden');
+    }
+    
+    // Hide view more button if no more notices to show
+    if (hiddenNotices.length <= 5) {
+        document.querySelector('.view-more-btn').style.display = 'none';
+    }
+}
+
+// Function to reset view more button when filtering
+function resetViewMoreButton() {
+    const hiddenNotices = document.querySelectorAll('.notice-item.hidden');
+    const viewMoreBtn = document.querySelector('.view-more-btn');
+    
+    if (hiddenNotices.length > 0) {
+        viewMoreBtn.style.display = 'inline-block';
+    } else {
+        viewMoreBtn.style.display = 'none';
+    }
+}
+
+// Function to go back (placeholder - implement as needed)
+function goBack() {
+    window.history.back();
+}
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function() {
+    // Set default filter to 'all'
+    filterNotices('all');
+    
+    // Hamburger menu toggle function
+    window.toggleMenu = function() {
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        dropdownMenu.classList.toggle('show');
+    };
+    
+    // Close dropdown when clicking outside
+    window.addEventListener('click', function(event) {
+        if (!event.target.matches('.hamburger-btn') && !event.target.closest('.dropdown-menu')) {
+            const dropdowns = document.getElementsByClassName('dropdown-menu');
+            for (let i = 0; i < dropdowns.length; i++) {
+                const openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    });
+});
+    </script>
+</body>
+</html>

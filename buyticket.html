@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhaka Metro Rail</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/buyticket.css">
+    <link rel="stylesheet" href="css/Footer.css">
+    <script src="Js/buyticket.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+          <div class="logo">
+            <img src="picture/logo.png" alt="Dhaka Metro Rail" />
+          </div>
+          <button class="hamburger-btn" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+          </button>
+          <nav>
+            <ul class="nav-links" id="nav-links">
+              <li><a href="home.html">HOME</a></li>
+              <li><a href="buyticket.html">BUY TICKET</a></li>
+              <li><a href="help&support.html">HELP & SUPPORT</a></li>
+              <li><a href="myticket.html">MY TICKETS</a></li>
+              <li><a href="travelhistory.html">TRAVEL HISTORY</a></li>
+              <li><a href="profile.html">PROFILE</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+    <!-- buy tickets -->
+    <buyticktes style="padding-top: 130px;padding-bottom: 30px;" class="container">
+        <div class="card">
+            <h2>Buy Ticket</h2>
+            <form id="journey-form">
+                <div class="form-group">
+                    <div>
+                        <label style="font-size: larger;" for="from"><strong>From</strong></label>
+                        <select id="from" class="form-control" style="margin-top: 0.5rem;">
+                            <option value="" disabled selected>Select Your Station</option>
+                            <option value="uttara-north">Uttara North</option>
+                            <option value="uttara-center">Uttara Center</option>
+                            <option value="uttara-south">Uttara South</option>
+                            <option value="pallabi">Pallabi</option>
+                            <option value="mirpur-11">Mirpur-11</option>
+                            <option value="mirpur-10">Mirpur-10</option>
+                            <option value="kazipara">Kazipara</option>
+                            <option value="shewrapara">Shewrapara</option>
+                            <option value="agargaon">Agargaon</option>
+                            <option value="bijoy-sarani">Bijoy Sarani</option>
+                            <option value="farmgate">Farmgate</option>
+                            <option value="karwan-bazar">Karwan Bazar</option>
+                            <option value="shahbagh">Shahbagh</option>
+                            <option value="dhaka-university">Dhaka University</option>
+                            <option value="bangladesh-secretariat">Bangladesh Secretariat</option>
+                            <option value="motijheel">Motijheel</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: larger;" for="to"><strong>To</strong></label>
+                        <select id="to" class="form-control" style="margin-top: 0.5rem;">
+                            <option value="" disabled selected>Select Your Station</option>
+                            <option value="uttara-north">Uttara North</option>
+                            <option value="uttara-center">Uttara Center</option>
+                            <option value="uttara-south">Uttara South</option>
+                            <option value="pallabi">Pallabi</option>
+                            <option value="mirpur-11">Mirpur-11</option>
+                            <option value="mirpur-10">Mirpur-10</option>
+                            <option value="kazipara">Kazipara</option>
+                            <option value="shewrapara">Shewrapara</option>
+                            <option value="agargaon">Agargaon</option>
+                            <option value="bijoy-sarani">Bijoy Sarani</option>
+                            <option value="farmgate">Farmgate</option>
+                            <option value="karwan-bazar">Karwan Bazar</option>
+                            <option value="shahbagh">Shahbagh</option>
+                            <option value="dhaka-university">Dhaka University</option>
+                            <option value="bangladesh-secretariat">Bangladesh Secretariat</option>
+                            <option value="motijheel">Motijheel</option>
+                        </select>
+                    </div>
+                </div>
+                <button style="display: flex; justify-content: center; align-items: center; width: 100%;height: 47px;
+                background-color: #006a4e; color: white; border: none; border-radius: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer;"
+                type="button" id="calculate-fare" class="btn btn-large"><strong>Calculate Fare</strong></button>
+            </form>
+            <form>
+                <div class="payment-options">
+                    <h2 style="color: #006a4e;text-align: center;" >Payment Method</h2>
+                    <div class="payment-option">
+                        <input type="radio" id="mobileBanking" name="payment">
+                        <label for="mobileBanking">Pay with Mobile Banking</label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="banking" name="payment">
+                        <label for="banking">Pay with Banking</label>
+                    </div>
+    
+                    <!-- Mobile Banking Form -->
+                    <div class="payment-form" id="mobileBankingForm">
+                        <h2 style="color: #006a4e;text-align: center;" >Mobile Banking Payment</h2>
+                        
+                        <div class="mobile-banking-options">
+                            <div class="bank-option" data-bank="bkash">
+                                <img src="picture/bkash.svg" alt="bKash">
+                                <span>bKash</span>
+                            </div>
+                            <div class="bank-option" data-bank="rocket">
+                                <img src="picture/dutch-bangla-rocket-logo-png_seeklogo-317692.png" alt="Rocket">
+                                <span>Rocket</span>
+                            </div>
+                            <div class="bank-option" data-bank="nagad">
+                                <img src="picture/Nagad-Vertical-Logo.wine.svg" alt="Nagad">
+                                <span>Nagad</span>
+                            </div>
+                            <div class="bank-option" data-bank="upay">
+                                <img src="picture/upay.png" alt="Upay">
+                                <span>Upay</span>
+                            </div>
+                        </div>
+                
+                        <div class="form-group">
+                            <div>
+                                <label for="mobile-number">Account Number</label>
+                                <input type="tel" id="mobile-number" placeholder="+8801 XXXXXXXXX">
+                            </div>
+                            <div>
+                                <label for="mobile-amount">Amount</label>
+                                <input type="text" id="mobile-amount" placeholder="Enter amount">
+                            </div>
+                            <div>
+                                <label for="mobile-pin">PIN Number</label>
+                                <input type="password" id="mobile-pin" placeholder="Enter your PIN">
+                            </div>
+                        </div>
+                        <div class="payment-actions">
+                            <button style="width: 300px;" type="button" class="btn btn-cancel">Cancel</button>
+                            <button style="width: 300px;background-color: #006a4e" type="button" class="btn btn-confirm">Confirm Payment</button>
+                        </div>
+                    </div>
+    
+                    <!-- Banking Form -->
+                    <div class="payment-form" id="bankingForm">
+                        <h3 style="color: #006a4e;text-align: center;" >Banking Payment</h3>
+                        
+                        <div class="banking-options">
+                            <div class="bank-card-option" data-card="visa">
+                                <img src="picture/Visa-Logo-2006.png" alt="Visa">
+                                <span>Visa</span>
+                            </div>
+                            <div class="bank-card-option" data-card="mastercard">
+                                <img src="picture/png-clipart-mastercard-credit-card-mastercard-logo-mastercard-logo-love-text.png" alt="Mastercard">
+                                <span>Mastercard</span>
+                            </div>
+                            <div class="bank-card-option" data-card="amex">
+                                <img src="picture/png-clipart-american-express-logo-credit-card-payment-credit-card-blue-text.png" alt="American Express">
+                                <span>Amex</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div>
+                                <label for="account-number">Card Number</label>
+                                <input type="text" id="account-number" placeholder="1234 5678 9012 3456">
+                            </div>
+                            <div class="card-details-grid">
+                                <div>
+                                    <label for="card-name">Cardholder Name</label>
+                                    <input type="text" id="card-name" placeholder="Name on card">
+                                </div>
+                                <div class="expiry-cvv">
+                                    <div>
+                                        <label for="MM">Expiry Date</label>
+                                        <input type="text" id="MM" placeholder="MM/YY">
+                                    </div>
+                                    <div>
+                                        <label for="CVV">CVV/CVC</label>
+                                        <input type="text" id="CVV" placeholder="123">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="bank-amount">Amount</label>
+                                <input type="text" id="bank-amount" placeholder="Enter amount">
+                            </div>
+                            <div>
+                                <label for="mobile-pin">PIN Number</label>
+                                <input type="password" id="mobile-pin" placeholder="Enter your PIN">
+                            </div>
+                        </div>
+                        <div class="payment-actions">
+                            <button style="width: 300px;" type="button" class="btn btn-cancel">Cancel</button>
+                            <button style="width: 300px;background-color: #006a4e"  style type="button" class="btn btn-confirm" >Confirm Payment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </buyticktes>
+    
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Company Information:</h3>
+                    <p>Dhaka Mass Transit Company Limited (DMTCL)</p>
+                    <p>Metro Rail Bhaban, Uttara, Dhaka-1230, Bangladesh</p>
+                    <p>Email: info@dmtcl.gov.bd</p>
+                    <p>☎ Helpline: +880 1234 567 890</p>
+                </div>
+                <div style="margin-left: 50px;padding-left: 50px;" class="footer-section">
+                    <h3>About</h3>
+                    <p style="line-height: 3ch; text-align: justify;">Dhaka Metro Rail is a modern mass rapid transit system operated by Dhaka Mass Transit Company Limited (DMTCL). It aims to provide a fast, safe, and eco-friendly transportation solution for the people of Dhaka, reducing congestion and improving urban mobility.</p>
+                </div>
+                <div style="margin-left: 120px;" class="footer-section">
+                    <h3>Quick Links:</h3>
+                    <p>Contact Us</a></p>
+                    </p>FAQs</a></p>
+                    <p>Terms & Conditions</a></p>
+                    <p>Privacy Policy</a></p>
+                    <h3>Follow Us:</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com" target="_blank" class="text-dark me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="text-dark me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="https://www.instagram.com" target="_blank" class="text-dark me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright">
+            <p><strong>Copyright & Disclaimer:</strong></p>
+            <p>&copy; 2025 Dhaka Mass Transit Company Limited (DMTCL). All rights reserved.</p>
+        </div>
+
+    <script src="buyticket.js"></script>
+</body>
+</html>

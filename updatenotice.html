@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhaka Metro Rail</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/updatenotice.css">
+    <link rel="stylesheet" href="css/Footer.css">
+    <script src="Js/dashboard.js"></script>
+    <script src="Js/index.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="picture/logo.png" alt="Dhaka Metro Rail" />
+            </div>
+            <button class="hamburger-btn" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="admindashboard.html">DASHBOARD</a></li>
+                    <li><a href="updatenotice.html">UPDATE NOTICE</a></li>
+                    <li><a href="lost&found.html">LOST & FOUND</a></li>
+                    <li><a href="complain.html">COMPLAINT BOX</a></li>
+                    <li><a href="index.html" id="signout-link">SIGNOUT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div style="padding-top: 130px;padding-bottom: 30px;" class="container">
+        <!-- Card for Adding New Notice -->
+        <div class="card">
+            <h2>Add New Notice</h2>
+            <form id="addNoticeForm">
+                <div class="form-group">
+                    <label for="noticeTitle">Title</label>
+                    <input type="text" id="noticeTitle" name="noticeTitle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="noticeCategory">Category</label>
+                    <select id="noticeCategory" name="noticeCategory" required>
+                        <option value="">Select a category</option>
+                        <option value="schedule">Schedule Change</option>
+                        <option value="maintenance">Maintenance</option>
+                        <option value="safety">Safety Notice</option>
+                        <option value="general">General Announcement</option>
+                        <option value="lost">Lost & Found</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="noticeContent">Content</label>
+                    <textarea id="noticeContent" name="noticeContent" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="Date">Date</label>
+                    <input type="date" id="Date" name="Date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="noticePriority">Priority</label>
+                    <select id="noticePriority" name="noticePriority" required>
+                        <option value="normal">Normal</option>
+                        <option value="high">High</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn">Publish Notice</button>
+            </form>
+        </div>
+
+        <!-- Card for Notice Table -->
+        <div class="card">
+            <h2>Update Notices</h2>
+            
+            <div class="filter-tabs">
+                <button class="tab-btn active" onclick="filterNotices('all')">All</button>
+                <button class="tab-btn" onclick="filterNotices('general')">General</button>
+                <button class="tab-btn" onclick="filterNotices('lost')">Lost & Found</button>
+            </div>
+
+            <table class="notice-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Content</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="noticeTableBody">
+                    <!-- Notice rows will be added here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div> 
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Company Information:</h3>
+                <p>Dhaka Mass Transit Company Limited (DMTCL)</p>
+                <p>Metro Rail Bhaban, Uttara, Dhaka-1230, Bangladesh</p>
+                <p>Email: info@dmtcl.gov.bd</p>
+                <p>☎ Helpline: +880 1234 567 890</p>
+            </div>
+            <div style="margin-left: 50px;padding-left: 50px;" class="footer-section">
+                <h3>About</h3>
+                <p style="line-height: 3ch;text-align: justify;">Dhaka Metro Rail is a modern mass rapid transit system operated by Dhaka Mass Transit Company Limited (DMTCL). It aims to provide a fast, safe, and eco-friendly transportation solution for the people of Dhaka, reducing congestion and improving urban mobility.</p>
+            </div>
+            <div style="margin-left: 120px;" class="footer-section">
+                <h3>Quick Links:</h3>
+                <p>Contact Us</p>
+                <p>FAQs</p>
+                <p>Terms & Conditions</p>
+                <p>Privacy Policy</p>
+                <h3>Follow Us:</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" class="text-dark me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="text-dark me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="text-dark me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        <p><strong>Copyright & Disclaimer:</strong></p>
+        <p>&copy; 2025 Dhaka Mass Transit Company Limited (DMTCL). All rights reserved.</p>
+    </div>
+    <script>
+        // Sample notice data
+        const notices = [
+            {
+                id: 1,
+                date: '25/02/2025',
+                title: 'Threat to Suspend Services',
+                category: 'general',
+                content: 'Officials and employees of Dhaka Mass Transit Company Limited (DMTCL) have threatened to suspend metro rail services on February 21, 2025, due to unresolved issues regarding their demands.',
+                expiry: '28/02/2025',
+                priority: 'high'
+            },
+            {
+                id: 2,
+                date: '21/02/2025',
+                title: 'Revised Friday Schedule',
+                category: 'schedule',
+                content: 'As of January 16, 2025, the metro rail operates on Fridays from 3:00 PM to 9:00 PM, with departures from Uttara North to Motijheel starting at 3:00 PM and from Motijheel to Uttara North at 3:20 PM.',
+                expiry: '30/03/2025',
+                priority: 'normal'
+            },
+            {
+                id: 3,
+                date: '20/02/2025',
+                title: 'Found: Wallet at Agargaon Station',
+                category: 'lost',
+                content: 'A black leather wallet was found at Agargaon Station ticket counter. Contains ID cards and credit cards. Owner can claim at station manager\'s office by providing proper identification.',
+                expiry: '20/03/2025',
+                priority: 'normal'
+            },
+            {
+                id: 4,
+                date: '18/02/2025',
+                title: 'Lost: School Bag on Metro',
+                category: 'lost',
+                content: 'A blue school bag with textbooks was left on metro train (Route: Motijheel to Uttara) at approximately 4:30 PM. Contains notebooks with name "Rahim Ahmed". Please contact lost property office at Uttara North station.',
+                expiry: '18/03/2025',
+                priority: 'normal'
+            },
+            {
+                id: 5,
+                date: '15/02/2025',
+                title: 'Caution Against Flying Lanterns',
+                category: 'safety',
+                content: 'In January 2025, DMTCL issued a notice advising the public to refrain from flying lanterns near metro rail areas to prevent potential hazards to the overhead power lines and train operations.',
+                expiry: '15/03/2025',
+                priority: 'high'
+            }
+        ];
+
+        // Initialize the table
+        document.addEventListener('DOMContentLoaded', function() {
+            renderNoticeTable(notices);
+            
+            // Form submission handler
+            document.getElementById('addNoticeForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const newNotice = {
+                    id: notices.length + 1,
+                    date: new Date().toLocaleDateString('en-GB'),
+                    title: document.getElementById('noticeTitle').value,
+                    category: document.getElementById('noticeCategory').value,
+                    content: document.getElementById('noticeContent').value,
+                    expiry: document.getElementById('noticeExpiry').value,
+                    priority: document.getElementById('noticePriority').value
+                };
+                
+                notices.push(newNotice);
+                renderNoticeTable(notices);
+                this.reset();
+                alert('New notice added successfully!');
+            });
+        });
+
+        // Render the notice table
+        function renderNoticeTable(noticesToShow) {
+            const tableBody = document.getElementById('noticeTableBody');
+            tableBody.innerHTML = '';
+            
+            noticesToShow.forEach(notice => {
+                const row = document.createElement('tr');
+                row.dataset.id = notice.id;
+                
+                row.innerHTML = `
+                    <td>${notice.date}</td>
+                    <td>${notice.title}</td>
+                    <td>${getCategoryName(notice.category)}</td>
+                    <td>${notice.content}</td>
+                    <td class="action-buttons">
+                        <button class="btn-edit" onclick="editNotice(${notice.id})"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="btn-delete" onclick="deleteNotice(${notice.id})"><i class="fas fa-trash"></i> Delete</button>
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+    </script>
+</body>
+</html>

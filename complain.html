@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhaka Metro Rail</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/complain.css">
+    <link rel="stylesheet" href="css/Footer.css">
+    <script src="Js/dashboard.js"></script>
+    <script src="Js/index.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="picture/logo.png" alt="Dhaka Metro Rail" />
+            </div>
+            <button class="hamburger-btn" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="admindashboard.html">DASHBOARD</a></li>
+                    <li><a href="updatenotice.html">UPDATE NOTICE</a></li>
+                    <li><a href="lost&found.html">LOST & FOUND</a></li>
+                    <li><a href="complain.html">COMPLAINT BOX</a></li>
+                    <li><a href="index.html" id="signout-link">SIGNOUT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div style="padding-top: 120px;padding-bottom: 30px;" class="container">
+        <div class="card">
+            <h2 style="padding-top: 16px;padding-bottom: 16px; text-align: center;">COMPLAINT BOX</h2>
+            <table class="complaint-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Station</th>
+                        <th>Type of Complaint</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="complaintTableBody">
+                    <tr>
+                        <td>15/06/2025</td>
+                        <td>Rahim Khan</td>
+                        <td>01712345678</td>
+                        <td>Uttara North</td>
+                        <td>Service Issue</td>
+                        <td>Train was delayed by 30 minutes without any announcement</td>
+                        <td class="action-buttons">
+                            <button class="btn-noted" onclick="markAsNoted(this)">Noted</button>
+                            <button class="btn-solve" onclick="solveComplaint(this)">Solve</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14/06/2025</td>
+                        <td>Fatima Begum</td>
+                        <td>01876543210</td>
+                        <td>Agargaon</td>
+                        <td>Staff Behavior</td>
+                        <td>Ticket counter staff was very rude when I asked for help</td>
+                        <td class="action-buttons">
+                            <button class="btn-noted" onclick="markAsNoted(this)">Noted</button>
+                            <button class="btn-solve" onclick="solveComplaint(this)">Solve</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13/06/2025</td>
+                        <td>Karim Ahmed</td>
+                        <td>01987654321</td>
+                        <td>Motijheel</td>
+                        <td>Facility Problem</td>
+                        <td>Escalator at north entrance has been out of service for 3 days</td>
+                        <td class="action-buttons">
+                            <button class="btn-noted" onclick="markAsNoted(this)">Noted</button>
+                            <button class="btn-solve" onclick="solveComplaint(this)">Solve</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12/06/2025</td>
+                        <td>Nusrat Jahan</td>
+                        <td>01678901234</td>
+                        <td>Farmgate</td>
+                        <td>Safety Concern</td>
+                        <td>There are no proper lights in the parking area after 8pm</td>
+                        <td class="action-buttons">
+                            <button class="btn-noted" onclick="markAsNoted(this)">Noted</button>
+                            <button class="btn-solve" onclick="solveComplaint(this)">Solve</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11/06/2025</td>
+                        <td>Abdul Mannan</td>
+                        <td>01567890123</td>
+                        <td>Shahbagh</td>
+                        <td>Other</td>
+                        <td>Suggestion: Please add more trash bins on the platforms</td>
+                        <td class="action-buttons">
+                            <button class="btn-noted" onclick="markAsNoted(this)">Noted</button>
+                            <button class="btn-solve" onclick="solveComplaint(this)">Solve</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Company Information:</h3>
+                <p>Dhaka Mass Transit Company Limited (DMTCL)</p>
+                <p>Metro Rail Bhaban, Uttara, Dhaka-1230, Bangladesh</p>
+                <p>Email: info@dmtcl.gov.bd</p>
+                <p>☎ Helpline: +880 1234 567 890</p>
+            </div>
+            <div style="margin-left: 50px;padding-left: 50px;" class="footer-section">
+                <h3>About</h3>
+                <p style="line-height: 3ch;text-align: justify;">Dhaka Metro Rail is a modern mass rapid transit system operated by Dhaka Mass Transit Company Limited (DMTCL). It aims to provide a fast, safe, and eco-friendly transportation solution for the people of Dhaka, reducing congestion and improving urban mobility.</p>
+            </div>
+            <div style="margin-left: 120px;" class="footer-section">
+                <h3>Quick Links:</h3>
+                <p>Contact Us</p>
+                <p>FAQs</p>
+                <p>Terms & Conditions</p>
+                <p>Privacy Policy</p>
+                <h3>Follow Us:</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" class="text-dark me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="text-dark me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="text-dark me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+<div class="copyright">
+    <p><strong>Copyright & Disclaimer:</strong></p>
+    <p>&copy; 2025 Dhaka Mass Transit Company Limited (DMTCL). All rights reserved.</p>
+</div>
+<script>
+    function markAsNoted(button) {
+        // Toggle the 'noted' class on the button
+        button.classList.toggle('noted');
+        
+        // Change the button text based on state
+        if (button.classList.contains('noted')) {
+            button.textContent = '✓ Noted';
+        } else {
+            button.textContent = 'Noted';
+        }
+    }
+    
+    function solveComplaint(button) {
+        if (confirm('Are you sure you want to mark this complaint as solved? This action cannot be undone.')) {
+            // Find the parent row and remove it
+            const row = button.closest('tr');
+            row.parentNode.removeChild(row);
+            
+            // In a real application, you would also update your database here
+            alert('Complaint has been marked as solved and removed from the list.');
+        }
+    }
+    
+    // Add event listener for signout
+    document.getElementById('signout-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        if (confirm('Are you sure you want to sign out?')) {
+            // In a real app, you would handle signout logic here
+            alert('You have been signed out successfully.');
+            window.location.href = 'index.html';
+        }
+    });
+</script>
+</body>
+</html>

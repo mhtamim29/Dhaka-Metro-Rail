@@ -1,0 +1,198 @@
+.notice-container {
+    background-color: #a7eede;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.notice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.section-title {
+    color: #03491b;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.notice-controls {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+.center-title {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.sort-options {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.tab-btn {
+    padding: 6px 12px;
+    border: none;
+    background-color: #e0e0e0;
+    color: #555;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    background-color: #006a4e;
+    color: white;
+}
+
+.sort-label {
+    font-size: 14px;
+    color: #555;
+}
+
+.sort-select {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.notices-list {
+    margin-bottom: 20px;
+}
+
+.notice-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #006a4e;
+    transition: transform 0.2s;
+}
+
+.notice-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.notice-item.lost {
+    border-left-color: #d35400;
+}
+
+.notice-date {
+    color: #006a4e;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.notice-item.lost .notice-date {
+    color: #d35400;
+}
+
+.notice-title {
+    color: #03491b;
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.notice-item.lost .notice-title {
+    color: #d35400;
+}
+
+.notice-content {
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.notice-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.general-tag {
+    background-color: #006a4e;
+    color: white;
+}
+
+.lost-tag {
+    background-color: #d35400;
+    color: white;
+}
+
+.view-more-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #006a4e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.view-more-btn:hover {
+    background-color: #006a4e;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Add these styles to your existing CSS */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.back-btn {
+    padding: 10px;
+    background-color: white;
+    color: #006837;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+    flex: 1;
+}
+
+.back-btn:hover {
+    background-color: #ddd;
+}
+
+.view-more-btn {
+    flex: 1; /* Makes both buttons equal width */
+}
